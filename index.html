@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chit Fund System Login - M.Sc. Project</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <!-- Centralized Firebase init and DB helpers -->
+    <script src="firebase.js"></script>
+    <script src="db.js"></script>
+</head>
+<body>
+    <div class="login-container">
+        <header>
+            <h1 class="logo">💰 ChitFund Manager</h1>
+            <h2>Secure System Access</h2>
+        </header>
+
+        <form id="loginForm" class="login-form">
+            <div class="form-group">
+                <label for="username">User ID / Email</label>
+                <input type="text" id="username" name="username" required autocomplete="username">
+            </div>
+            
+            <div class="form-group password-group">
+                    <label for="password">Password</label>
+                    <div style="position:relative;">
+                        <input type="password" id="password" name="password" required autocomplete="current-password">
+                        <button type="button" id="togglePassword" aria-label="Show password" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:0.95rem;color:var(--primary-color);">Show</button>
+                    </div>
+                </div>
+
+            <div class="form-group role-selector">
+                <label for="role">Select Role:</label>
+                <select id="role" name="role" required>
+                    <option value="user">Member (User)</option>
+                    <option value="admin">Foreman (Admin)</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn-login">Login</button>            
+            <p id="message" class="error-message"></p>
+        </form>
+
+        <footer>
+            <p>&copy; 2025 M.Sc. CS Project | Finance System</p>
+        </footer>
+    </div>
+</body>
+</html>

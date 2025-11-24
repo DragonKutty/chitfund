@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Chit Fund Manager</title>
+    <link rel="stylesheet" href="admin.css"> 
+    <!-- Updated Font Link -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Firebase SDKs for App and Firestore -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+    <!-- Centralized Firebase initializer and DB helpers (edit firebase.js to add your config) -->
+    <script src="firebase.js"></script>
+    <script src="db.js"></script>
+</head>
+<body>
+    
+    <div class="app-container">
+        
+        <aside class="sidebar">
+            <h1 class="sidebar-logo">💰 Admin Panel</h1>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#" data-module="dashboard" class="active">Dashboard</a></li>
+                    <li><a href="#" data-module="members">Member Management</a></li>
+                    <li><a href="#" data-module="auction">Auction & Collection</a></li>
+                    <li><a href="#" data-module="pending">Pending Dues & Interest</a></li>
+                    <li><a href="#" data-module="reports">Reports & Notifications</a></li>
+                </ul>
+            </nav>
+            <button id="logoutBtn" class="btn-logout">Logout</button> 
+ 
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <h2>Welcome back, Foreman!</h2>
+                <div class="user-info">
+                    <p>Admin ID: ADM-001</p>
+                </div>
+            </header>
+
+            <section id="dynamicContent" class="content-section">
+                <h3>Loading Dashboard...</h3>
+            </section>
+        </main>
+    </div>
+    
+    <div id="appModal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 id="modalTitle">Modal Title</h3>
+                <button class="close-btn" id="modalCloseBtn">&times;</button>
+            </div>
+            <div id="modalBody" class="modal-body">
+                <p>Content loading...</p>
+            </div>
+            <div id="modalFooter" class="modal-footer">
+                </div>
+        </div>
+    </div>
+
+    <script src="admin.js" defer></script> 
+</body>
+</html>

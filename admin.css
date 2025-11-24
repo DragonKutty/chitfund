@@ -1,0 +1,408 @@
+/* ---------------------------------- */
+/* ADMIN DASHBOARD LAYOUT STYLES */
+/* ---------------------------------- */
+
+/* Uses the Dark Mode variables set in index.css */
+
+/* Change body to full screen layout for admin page */
+.app-container {
+    display: flex;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: var(--background-color);
+}
+
+/* -------------------- */
+/* SIDEBAR STYLES */
+/* -------------------- */
+.sidebar {
+    width: 260px; /* Slightly wider */
+    background: linear-gradient(180deg, #1f2038, #18192a); /* Subtle gradient for depth */
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar-logo {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
+    color: var(--secondary-color);
+    letter-spacing: 1px;
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-menu li {
+    margin-bottom: 8px;
+}
+
+.nav-menu a {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    color: #b0b4c7; /* Muted light color */
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.2s, color 0.2s, transform 0.1s;
+    font-weight: 500;
+}
+
+.nav-menu a:hover {
+    background-color: rgba(0, 98, 255, 0.1);
+    color: var(--secondary-color);
+    transform: translateX(3px); /* Subtle hover animation */
+}
+
+.nav-menu a.active {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(0, 98, 255, 0.3);
+}
+
+/* Logout Button */
+.btn-logout {
+    margin-top: auto;
+    padding: 12px;
+    background-color: var(--error-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    font-weight: 600;
+}
+
+.btn-logout:hover {
+    background-color: #d13645;
+    transform: translateY(-2px);
+}
+
+/* -------------------- */
+/* MAIN CONTENT STYLES */
+/* -------------------- */
+.main-content {
+    flex-grow: 1;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.topbar {
+    background-color: var(--card-background);
+    padding: 20px 30px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.topbar h2 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+.user-info p {
+    font-size: 0.9rem;
+    color: #a0a4bf;
+}
+
+.content-section {
+    padding: 30px;
+    flex-grow: 1;
+    /* NEW: Subtle content entrance animation */
+    animation: fadeIn 0.5s ease-out; 
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* -------------------- */
+/* GENERAL CARD/TABLE/FORM STYLES */
+/* -------------------- */
+
+.card {
+    background-color: var(--card-background);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    margin-bottom: 25px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s; /* Hover effect */
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+/* Buttons */
+.btn-primary {
+    padding: 10px 20px;
+    background-color: var(--success-color); /* Bright Green for Add/Save */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background-color: #1e873a;
+}
+
+.btn-secondary {
+    padding: 10px 20px;
+    background-color: #6c757d; /* Gray for secondary actions like Cancel */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+    font-weight: 500;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: separate; /* Use separate for rounded corners on the table */
+    border-spacing: 0;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+table th {
+    background-color: var(--input-background);
+    color: var(--text-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+/* Form inputs in the card context */
+.card input[type="text"], 
+.card input[type="tel"], 
+.card select {
+    background-color: var(--input-background);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    border-radius: 6px;
+    transition: border-color 0.3s;
+}
+
+/* Status Indicators */
+.status-active {
+    font-weight: 600;
+    color: var(--secondary-color);
+    padding: 5px 10px;
+    background-color: rgba(0, 212, 255, 0.1);
+    border-radius: 4px;
+}
+.status-prized {
+    font-weight: 600;
+    color: var(--success-color);
+    padding: 5px 10px;
+    background-color: rgba(40, 167, 69, 0.1);
+    border-radius: 4px;
+}
+
+
+/* ---------------------------------- */
+/* MODAL STYLES (Professional Look) */
+/* ---------------------------------- */
+
+.modal-overlay {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Darker overlay for focus */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.modal-overlay.visible {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-box {
+    background-color: var(--card-background);
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    width: 90%;
+    max-width: 550px;
+    transform: scale(0.9);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Springy animation */
+    border: 1px solid var(--primary-color);
+}
+
+.modal-overlay.visible .modal-box {
+    transform: scale(1);
+}
+
+.modal-header {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.modal-header h3 {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #b0b4c7;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: var(--error-color);
+}
+
+.modal-footer {
+    padding-top: 25px;
+    text-align: right;
+}
+
+/* -------------------- */
+/* MODULE GRID / CARDS  */
+/* -------------------- */
+.module-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 18px;
+    margin-top: 18px;
+}
+
+.module-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03));
+    padding: 18px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.02);
+    transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+}
+
+.module-card:focus,
+.module-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(2,6,23,0.45);
+    border-color: rgba(0,98,255,0.18);
+    outline: none;
+}
+
+/* Disable hover transform inside the modules overview (dashboard entry) per request */
+.modules-overview .module-card:focus,
+.modules-overview .module-card:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: rgba(255,255,255,0.02);
+}
+
+/* Entrance animation for module cards */
+.module-grid .module-card {
+    opacity: 0;
+    transform: translateY(8px) scale(0.995);
+    transition: transform 360ms cubic-bezier(.2,.9,.2,1), opacity 360ms ease;
+}
+.module-grid.animate .module-card {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+/* Stagger via nth-child delays (covers up to 8 items) */
+.module-grid.animate .module-card:nth-child(1) { transition-delay: 40ms; }
+.module-grid.animate .module-card:nth-child(2) { transition-delay: 80ms; }
+.module-grid.animate .module-card:nth-child(3) { transition-delay: 120ms; }
+.module-grid.animate .module-card:nth-child(4) { transition-delay: 160ms; }
+.module-grid.animate .module-card:nth-child(5) { transition-delay: 200ms; }
+.module-grid.animate .module-card:nth-child(6) { transition-delay: 240ms; }
+.module-grid.animate .module-card:nth-child(7) { transition-delay: 280ms; }
+.module-grid.animate .module-card:nth-child(8) { transition-delay: 320ms; }
+
+/* Module content entrance */
+.content-enter {
+    animation: contentPop 360ms ease both;
+}
+@keyframes contentPop {
+    from { opacity: 0; transform: translateY(8px) scale(0.995); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.module-icon {
+    font-size: 1.6rem;
+}
+
+.module-card h4 {
+    margin: 0;
+    font-size: 1.05rem;
+    color: var(--text-color);
+}
+
+.module-desc {
+    margin: 0;
+    color: #98a0c1;
+    font-size: 0.9rem;
+}
+
+.muted {
+    color: #9aa0bf;
+    font-size: 0.9rem;
+}
+
+/* Responsive: collapse sidebar on narrow screens */
+@media (max-width: 820px) {
+    .sidebar { display: none; }
+    .app-container { flex-direction: column; }
+    .module-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+}
+
+/* Members form rows inside modal */
+.form-row { margin-bottom: 12px; display:flex; flex-direction:column; }
+.form-row label { font-weight:600; margin-bottom:6px; color:var(--text-color); }
+.form-row input, .form-row select { padding:10px; border-radius:6px; border:1px solid var(--border-color); background:var(--card-background); color:var(--text-color); }
+
+/* Small action buttons used in table */
+.btn-small { padding:6px 10px; font-size:0.9rem; border-radius:6px; border:none; cursor:pointer; }
+.btn-small.btn-edit { background: #007bff; color: white; margin-right:6px; }
+.btn-small.btn-delete { background: #dc3545; color: white; }
+
+/* Member table tweaks */
+#memberTable thead th { font-size:0.85rem; }
+#memberTable tbody td { vertical-align: middle; }
